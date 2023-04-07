@@ -38,6 +38,7 @@
 - SLM(Service Level Management)
   - SLA(Service Level Agreement)
 - TCO(Total Cost of Ownership)
+  - システム導入から運用管理までを含んだコスト
 - RFC(Request for Change)
 - インシデント
 - BCM(Business Continuity Management)
