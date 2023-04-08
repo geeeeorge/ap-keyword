@@ -184,6 +184,10 @@
 - その他
   - ワントゥワンマーケティング
     - これに対してマスマーケティング
+  - イノベータ理論
+    - イノベータ，オピニオンリーダ，アーリーマジョリティ，レイトマジョリティ，ラガード
+    - キャズム
+      - オピニオンリーダとアーリーマジョリティの間
 ### ビジネス戦略の目標，評価
 - BSC
   - Balanced Score Card
@@ -224,6 +228,7 @@
 - EDI
   - Electronic Data Interchange
 - オープンAPI
+- オープンイノベーション
 - 仮想通貨
 - OtoO
   - Online to Offline
@@ -240,6 +245,11 @@
   - かんばん方式
 - FMS
   - Flexible Manufacturing System
+  - 多品種少量生産に使用
+  - セル生産方式
+    - 多品種少量生産に有効
+    - 対義語
+      - ライン生産方式
 - PDM
   - Product Data Management
 - RFID
@@ -263,15 +273,137 @@
 ### IoT関連
 - 4段階効果
   - 監視，制御，最適化，自律化
+- NOTICE
+- IoTセキュリティガイドライン
+- EDSA認証
+  - Embedded Device Security Assurance
+- TPM
+  - Trusted Platform Module
+- サイバーキルチェーン
+- 通信規格・技術
+- エッジコンピューティング
+- デジタルツイン
+  - CPS
+    - Cyber Physical System
+- HRTech
+- 関連用語
+  - MOT
+    - Management of Technology
+    - 技術経営
+  - イノベーション
+    - ラディカルイノベーション
+    - プロダクトイノベーション
+    - プロセスイノベーション
+    - イノベーションのジレンマ
+  - 技術のSカーブ
+  - コモディティ化
+  - パイプ曲線
+    - 5段階
+  - イノベーション経営の障壁
+    - 魔の川
+      - 研究→開発
+    - 死の谷
+      - 開発→製品化
+    - ダーウィンの海
+      - 製品化→市場形成
+  - TLO
+    - Technology Licensing Organization
+    - 技術転移機関
 ## 経営工学
+### 意思決定手法
+- ゲーム理論
+  - マクシミン原理
+    - max min
+  - マクシマックス原理
+    - max max
+  - 期待値原理
+### 線形計画法
+### IE分析手法
+- 作業測定方法
+  - ワークサンプリング法
+  - PTS法
+    - Predetermined Time Standard
+  - ストップウォッチ法
+### 在庫管理手法
+- 2ビン法
+  - Cランク
+- 定期発注方式
+  - Aランク
+  - 安全在庫
+- 定量発注方式
+  - Bランク
+  - 経済的発注量
+    - EOQ
+      - Economic Order Quantity
+### 品質管理手法
+- QC
+  - Quality Control
+  - TQC
+    - Total Quality Control
+  - TQM
+    - Total Quality Management
+- QC七つ道具
+  - パレート図
+    - ABC分析
+    - パレートの法則
+      - Aランクに投資
+    - ロングテール
+      - e-ビジネスでB,Cランクの商品を扱う
+  - 管理図
+    - 折れ線グラフ
+    - CL, UCL, LCL
+  - 特性要因図
+    - 魚の骨
+- 新QC七つ道具
+  - 連関図
+    - 複雑な因果関係
+  - 系統図
+    - 目的-手段
+  - PDPC
+    - Process Decision Program Chart
+    - 様々な予測からプロセスを分析
+  - 親話図
+    - ブレインストーミング
+  - アローダイアグラム
+    - 順序，日程
+  - マトリックス図
+    - 関連の有無，度合
+### 検査手法
 ## 企業会計
-### 関係比率法
+### 財務指標
+- 総資産回転率
+  - 売上高 / 総資産
+- 自己資本比率
+  - 自己資本 / 総資本
+  - 総資本
+    - 固定負債 + 流動負債 + 自己資本
+- 総資産営業利益率
+    - ROA
+        - Return On Assets
+    - 営業利益 / 総資本
 - 自己資本利益率
   - ROE
-  - Return On Equity
+    - Return On Equity
+  - 当期純利益 / 自己資本
 - 投資利益率
   - ROI
-  - Return On Investment
+    - Return On Investment
+  - 利益 / 投資額
+- 固定比率
+  - 固定資産 / 自己資本
+- 流動比率
+  - 流動資産 / 流動負債
+- XBRL
+  - eXtensible Business Reporting Language
+  - 決算情報の標準化
+### 棚卸資産評価
+- 評価方法
+  - 先入先出法
+  - 後入先出法
+  - 総平均法
+### 減価償却
+- 定額法
+- 定率法
 ## 標準化と関連法規
 ### 共通フレーム
 - テクニカルサービス
@@ -281,6 +413,8 @@
       - Quality, Cost, Delivery
   - 要件定義プロセス
 ### 情報システム調達における契約
+- 情報システム・モデル取引・契約書
+  - 多段階契約
 - RFP
   - Request For Proposal
   - 提案依頼書
@@ -297,3 +431,42 @@
     - Software Quality Body of Knowledge
   - SWEBOK
     - Software Engineering Body of Knowledge
+- データの標準化
+  - Unicode
+    - UTF-8
+  - バーコード
+    - チェックディジット
+  - QRコード
+  - JPEG
+    - 非可逆圧縮方式
+  - MPEG
+    - 非可逆圧縮方式
+  - GIF
+    - 可逆圧縮方式
+### 関連法規
+- 不正競争防止法
+  - 秘密
+    - 秘密管理性
+    - 有用性
+    - 非公知性
+- 独占禁止法
+- 製造物責任法
+  - PL法
+    - Product Liability
+- 下請代金支払遅延等防止法
+- 電子署名法
+  - 電子文書
+  - 電子署名
+  - 特定認証業務
+- 著作権法
+- 労働基準法
+  - 36協定
+    - あらかじめ期間を定める
+      - 年6か月まで
+    - 残業時間を増やせる
+- 労働者派遣法
+  - 二重派遣禁止
+- 請負契約
+  - 委任のこと
+  - 瑕疵担保責任
+    - 準委任契約だとこれはない
