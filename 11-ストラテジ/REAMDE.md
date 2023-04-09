@@ -369,6 +369,14 @@
   - マトリックス図
     - 関連の有無，度合
 ### 検査手法
+- 抜取検査
+  - ロットから一部抜き出す
+  - AQL
+    - Acceptable Quality Level
+    - 合格品質水準
+- OC曲線
+  - Operating Characteristic Curve
+  - 生産者危険，消費者危険
 ## 企業会計
 ### 財務指標
 - 総資産回転率
