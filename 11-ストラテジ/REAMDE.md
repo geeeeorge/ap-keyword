@@ -274,18 +274,32 @@
 - 4段階効果
   - 監視，制御，最適化，自律化
 - NOTICE
+  - National Operation Towards IoT Clean Environment
 - IoTセキュリティガイドライン
+  - 5つの段階
+    - 方針，分析，設計，構築・接続，保守・運用
 - EDSA認証
   - Embedded Device Security Assurance
+  - 3つの評価項目
+    - 開発プロセスのセキュリティ評価
+    - セキュリティ機能評価
+    - 通信に対する堅牢性評価
+      - ファジング
 - TPM
   - Trusted Platform Module
+  - ハードウェアに組み込まれたセキュリティモジュール
+  - 耐タンパ性
 - サイバーキルチェーン
+  - 7段階
 - 通信規格・技術
 - エッジコンピューティング
+  - データ処理のリソースを端末の近くに配置
+  - 処理を分散，サーバ負荷低減
 - デジタルツイン
   - CPS
     - Cyber Physical System
 - HRTech
+  - Human Resource Technology
 - 関連用語
   - MOT
     - Management of Technology

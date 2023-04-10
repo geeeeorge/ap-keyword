@@ -1,8 +1,403 @@
 # セキュリティ
 ## 暗号化
+- 暗号化方式の種類
+  - 共通鍵暗号方式
+    - 通信相手が多くなると管理が大変
+    - 実装方法
+      - DES
+        - Data Encryption Standard
+      - AES
+        - Advanced Encryption Standard
+  - 公開鍵暗号方式
+    - 送信者が増えても管理が容易
+    - 実装方法
+      - RSA
+        - Rivest-Shamir-Adleman
+        - 大きな数値の素因数分解
+  - ハイブリッド方式
+    - 共通鍵暗号方式と公開鍵暗号方式の組み合わせ
+    - 公開鍵暗号方式で共通鍵を交換し，共通鍵暗号方式で通信
+    - 使用例
+      - S/MIME
+      - PGP
+      - SSL/TLS
+    - エンベロープ暗号化
+
 ## 無線LANの暗号
+### 無線LANにおける通信の暗号化
+![45a.gif](..%2F..%2F..%2F..%2F..%2FYUTOSE%7E1%2FAppData%2FLocal%2FTemp%2F45a.gif)
+- WEP
+  - Wired Equivalent Privacy
+  - 40bit，64bit，128bitの3種類
+  - IV(Initialization Vector)
+    - 24bit
+  - WEPキー
+  - RC4
+- WPA
+  - Wi-Fi Protected Access
+  - TKIP
+    - Temporal Key Integrity Protocol
+  - RC4
+    - 64bit
+- WPA2
+  - Wi-Fi Protected Access 2
+  - CCMP
+    - Counter-mode with Cipher Block Chaining Message Authentication Code Protocol
+  - AES
+    - 128,192,256bitの3種類
+- WPAとWPA2の2つのモード
+  - パーソナルモード
+    - PSK
+      - Pre-Shared Key
+  - エンタープライズモード
+    - IEEE 802.1X
+      - サプリカント
+      - オーセンティケイタ
+      - 認証サーバ
+        - RADIUSサーバ
+    - RADIUSサーバ
+      - Remote Authentication Dial In User Service
+
 ## 認証
+### 利用者認証
+- 固定式パスワード認証
+- チャレンジレスポンス認証
+- ワンタイムパスワード
+  - 時刻同期方式
+  - S/KEY方式
+- シングルサインオン
+  - Cookie型
+  - リバースプロキシ型
+  - SAML型
+    - Security Assertion Markup Language
+- バイオメトリクス認証
+  - 指紋認証
+  - 声紋認証
+  - 虹彩認証
+- その他
+  - リスクベース認証
+  - Kerberos方式
+  - 2要素認証
+  - CAPTCHA認証
+
+### リモートアクセス
+- PPP
+  - Point-to-Point Protocol
+  - データリンク層のプロトコル
+  - NCP
+    - Network Control Protocol
+    - IPアドレスの割り当て
+  - LCP
+    - Link Control Protocol
+    - 認証や暗号化の有無
+  - 認証プロトコル
+    - PAP
+      - Password Authentication Protocol
+      - パスワードを平文で送信
+    - CHAP
+      - Challenge Handshake Authentication Protocol
+      - パスワードを暗号化して送信
+      - チャレンジレスポンス認証を利用
+
+### RADIUS認証
+- RADIUS
+  - アクセスサーバと認証サーバを分けた
+- IEEE 802.1X
+  - RADIUSを採用
+  - EAP
+    - Extensible Authentication Protocol
+    - PPPを拡張
+    - EAP-TLS
+      - TLSを利用
+    - EAP-MD5
+      - ハッシュ関数MD5を利用
+
 ## デジタル署名とPKI
+### デジタル署名
+- デジタル署名
+  - 改ざん，なりすまし防止，否認防止
+- メッセージダイジェスト
+  - ハッシュ関数で計算された値
+
+### PKI(公開鍵基盤)
+- 認証局(CA)
+  - デジタル証明書を発行
+  - 3つの機能
+    - 登録局(RA)
+    - 発行局(IA)
+    - 検証局(VA)
+  - CP
+    - Certification Practice
+  - CPS
+    - Certification Practice Statement
+- デジタル証明書の失効情報
+  - CRLモデル
+    - Certificate Revocation List
+  - OCSPモデル
+    - Online Certificate Status Protocol
+    - OCSPリクエスタ，OCSPレスポンダ
+
 ## 情報セキュリティ実装技術
+### SSL/TLS
+- TLSでの通信
+  - ハンドシェイク
+    - サーバ認証
+      - DV証明書
+      - OV証明書
+      - EV証明書
+    - 利用する暗号アルゴリズムとプロトコルバージョンを決める
+    - 暗号化鍵を作成し共有
+      - 共通鍵
+  - データの伝送
+    - MAC
+      - Message Authentication Code
+      - 送信データから計算
+      - 盗聴，改ざん対策
+### ネットワークセキュリティ
+- ファイアウォール
+  - 型
+    - パケットフィルタリング型
+      - スタティックパケットフィルタリング
+      - ダイナミックパケットフィルタリング
+        - ステートフルインスペクション
+    - アプリケーションゲートウェイ型
+  - 原則拒否の方針
+- プロキシサーバ
+  - アプリケーションゲートウェイ型ファイアウォールでhttpを扱う場合
+- リバースプロキシサーバ
+  - Webサーバの代理として利用
+- WAF
+  - Web Application Firewall
+  - 方式
+    - ホワイトリスト方式
+    - ブラックリスト方式
+- TLSアクセラレータ
+  - 暗号化と複合の処理
+    - HTTPSのリクエストをHTTPに変換
+    - HTTPのレスポンスをHTTPSに変換
+- セキュリティ対策機器
+  - IDS
+    - Intrusion Detection System
+    - 種類
+      - NIDS
+        - Network Intrusion Detection System
+      - HIDS
+        - Host Intrusion Detection System
+      - IPS
+        - Intrusion Prevention System
+      - ハニーポット
+    - SIEM
+        - Security Information and Event Management
+        - イベントログの集約，分析，監視
+- 不正検知方式
+  - シグネチャ方式
+  - アノマリー方式
+  - 問題点
+    - フォールスポジティブ
+    - フォールスネガティブ
+- VPN
+  - Virtual Private Network
+  - 2つのモード
+    - トランスポートモード
+    - トンネルモード
+  - プロトコル
+    - L2TP
+      - Layer 2 Tunneling Protocol
+      - データリンク層のトンネルプロトコル
+    - PPTP
+        - Point-to-Point Tunneling Protocol
+        - データリンク層のトンネルプロトコル
+    - IPSec
+      - ネットワーク層
+      - AH
+        - Authentication Header
+        - 認証ヘッダ
+      - ESP
+        - Encapsulating Security Payload
+        - 暗号ペイロード
+      - IKE
+        - Internet Key Exchange
+        - 暗号化方式の決定と鍵交換プロトコル
+
 ## 情報セキュリティの脅威と攻撃手法
+### 情報セキュリティと脅威
+- 3つの特性
+  - 機密性
+    - confidentiality
+  - 完全性
+    - integrity
+  - 可用性
+    - availability
+- 脅威の種類
+  - 物理的脅威
+    - 火災，水害，地震，停電
+  - 技術的脅威
+    - ハードウェア，ソフトウェアの故障
+  - 人的脅威
+
+### マルウェアの脅威と対策
+- マルウェア
+  - ワーム
+  - トロイの木馬
+  - スパイウェア
+  - ボット
+    - C&Cサーバー
+      - Command & Control
+      - ボットネット
+  - rootkit
+    - バックドア
+  - ランサムウェア
+  - キーロガー
+  - Exploit Kit
+    - エクスプロイトコードの集合
+  - マクロウイルス
+  - 偽セキュリティ対策ソフト
+- マルウェア対策
+  - セキュリティ対策ソフト
+    - シグネチャ(パターンファイル)
+  - セキュリティパッチ
+    - ゼロデイ攻撃に注意
+- マルウェアの検出方法
+  - コンペア法
+  - チェックサム法
+    - インテグリティチェック法とも
+  - ビヘイビア法
+    - サンドボックスで実行
+    - 動的ヒューリスティック法とも
+
+### パスワードの不正取得と対策
+- パスワードクラック
+  - 辞書攻撃
+  - ブルートフォース攻撃
+    - 総当たり
+    - 対策
+      - アカウントロック
+    - リバースブルートフォース攻撃
+  - 類推攻撃
+- パスワードリスト攻撃
+  - IDとパスワードの使いまわし
+  - 対策
+    - 使いまわさない
+- レインボー攻撃
+  - レインボーテーブルを作成し比較
+  - 対策
+    - ソルトを加えてハッシュ化
+      - 十分な長さのランダム列
+    - ストレッチング
+      - ハッシュ化を繰り返す
+
+### 攻撃の準備
+- フットプリンティング
+  - 攻撃対象の下調べ
+- ポートスキャン
+  - TCPスキャン
+    - 3way handshakeを使用
+  - SYNスキャン
+    - 3way handshakeのSYNパケットのみを送信
+    - ステルススキャンとも
+  - UDPスキャン
+
+### 攻撃手法
+- バッファオーバーフロー
+  - バッファのサイズを超えるデータを書き込む
+  - 対策
+    - 大きなデータの書き込みを禁止
+- ディレクトリトラバーサル
+  - ファイルシステムの階層を超えてファイルを参照
+  - 対策
+    - パラメタチェック
+- SQLインジェクション
+  - SQL文を改ざん
+  - 対策
+    - サニタイジング
+      - 特別な文字を取り除いたり，エスケープ処理を行う
+    - バインド機構
+      - プレースホルダー(変数)を使用
+      - プリぺアドステートメント
+        - プリコンパイルされたSQL文を使用
+- OSコマンドインジェクション
+  - 不正なシェルスクリプトの実行
+- クロスサイトスクリプティング
+  - スクリプト実行させる
+  - 対策
+    - エスケープ処理
+- フィッシング
+  - ユーザーに偽のメールを送信
+- スミッシング
+  - ユーザーに偽のSMSを送信
+  - SMSフィッシング
+- DNSキャッシュポイズニング
+  - DNSキャッシュサーバーに偽の情報を登録
+  - 対策
+    - DNSSEC
+      - DNS Security Extensions
+      - デジタル署名を利用
+    - ヘッダーのID,PORT番号をランダム化
+- 水飲み場型攻撃
+  - 頻繁に利用するWebサイトに罠
+- スパムメール
+  - 対策
+    - OP25B
+      - Outbound Port 25 Blocking
+      - SPF
+        - Sender Policy Framework
+        - メール送信者のIPアドレスを検証
+      - DKIM
+        - DomainKeys Identified Mail
+        - メール送信者のドメインを検証
+        - デジタル署名を利用
+
+### その他のセキュリティ用語
+- 技術的セキュリティ対策
+  - ペネトレーションテスト
+  - デジタルフォレンジックス
+    - 法的証拠を保全，収集，分析
+  - 耐タンパ性
+- オフィスセキュリティ対策
+  - ゾーニング
+  - クリアデスク
+  - クリアスクリーン
+  - アンチパスバック
+    - 入退室を適切に制御
+  - インターロックゲート
+  - TPMOR
+    - Two Person Minimum Occupancy Rule
+- 人的脆弱性と不正のメカニズム
+  - シャドーIT
+  - 不正のトライアングル
+    - 機会，動機，正当化
+
 ## 情報セキュリティ管理
+### リスクマネジメント
+- リスクアセスメント
+  - リスク特定，リスク分析，リスク評価
+- リスク分析
+  - 純粋リスク
+  - 投機リスク
+- リスク評価
+  - 定量的評価
+  - 定性的評価
+- リスク対応
+  - リスクコントロール
+    - 回避，最適化，移転，保有
+  - リスクファイナンス
+    - 移転，保有
+
+### セキュリティ評価の標準化
+- 情報セキュリティ機関・評価基準
+  - CSIRT
+    - Computer Security Incident Response Team
+  - JPCERT/CC
+    - Japan Computer Emergency Response Team / Coordination Center
+  - J-CRAT
+    - Japan Computer Emergency Response Team
+    - サイバーレスキュー隊
+  - JVN
+    - Japan Vulnerability Notes
+    - サイト
+  - CRYPTREC
+    - Cryptographic Module Evaluation and Certification Scheme
+    - CRYPTREC暗号リスト
+  - CVSS
+    - Common Vulnerability Scoring System
+    - 共通脆弱性評価システム
